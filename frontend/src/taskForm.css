@@ -1,86 +1,34 @@
 
-.task-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin-bottom: 12px;
+.form{
+    position: relative;
 }
 
-/* splits the card into "content on the left" + "actions on the right" */
-.task-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.tasks{
+    border: 2px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
-.task-content {
-  flex: 1; /* takes up remaining space, pushes actions to the far right */
+.closebtn{
+    display: flex;
+    border: none;
+    width: 25px;
+    cursor: pointer;
 }
 
-/* task name + priority badge, side by side */
-.task-top-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
+.submit{
+    margin-top: 3px;
+    padding: 3px;
+    display: flex;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 70px;
+    left: 50px;
+    padding: 2em;
 }
 
-.priority-badge {
-  padding: 2px 10px;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  color: black;
-  text-transform: capitalize;
-}
-
-.task-description {
-  margin: 6px 0;
-  color: #444;
-  font-size: 0.9rem;
-}
-
-/* deadline on the left, view-more button on the right */
-.task-bottom-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  color: #777;
-}
-
-.view-more-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #777;
-}
-
-/* right column: edit button stacked above checkmark */
-.task-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-}
-
-.edit-btn {
-  font-size: 0.8rem;
-  background: none;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 4px 10px;
-  cursor: pointer;
-  color: black;
-}
-
-.edit-btn :hover{
-    transform: scale(2.0);
-}
-
-.checkmark-btn {
-  background: none;
-  border: none;
-  font-size: 1.1rem;
-  color: #2ecc71; /* green — signals "complete" action */
-  cursor: pointer;
+.trash{
+    color: #444;
 }

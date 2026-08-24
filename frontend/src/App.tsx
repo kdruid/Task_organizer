@@ -1,17 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'; 
 import './taskForm.css'
 import TaskForm, {type Task} from './taskForm'
 import { FaTrash, FaPlus, FaCheck } from 'react-icons/fa';
 import { Priority_colors } from './constants/priority';
+import { db } from './db/db';
 
 
 function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
-
-  function handleSaveTask(newTask: Task) {
+  
+  useEffect(() => {
+    async function loadTasks() {
+      const storedTasks = await db.tasks.toArray();
+      setTasks(storedTasks);
+    }
+    loadTasks();
+  }, []);
+  async function handleSaveTask(newTask: Task) {
+    await db.tasks.put(newTask);
     setTasks((prevTasks) => {
       const exists = prevTasks.some((t) => t.id === newTask.id);
       if (exists) {
@@ -21,8 +30,10 @@ function App() {
     });
   }
 
-  function handleDeleteTask(id: string){
-    setTasks((prevTask) => prevTask.filter((t) => t.id !== id));}
+  async function handleDeleteTask(id: string) {
+    await db.tasks.delete(id);
+    setTasks((prevTasks) => prevTasks.filter((t) => t.id !== id));
+  }
   
 
   function handleEditClick(task: Task) {
@@ -49,10 +60,9 @@ function App() {
       <main>
         {tasks.map((task) => (
           <>
-          <div key={task.id} className="task-card">
+          <div key={task.id} className="task-card" style={{ backgroundColor: `color-mix(in srgb, ${Priority_colors[task.priority]} 60%, white)` }}>
             <div className="task-main">
-              <div className="task-content" style={{ backgroundColor: `color-mix(in srgb, ${Priority_colors[task.priority]} 15%, white)` }}
->
+              <div className="task-content" style={{ backgroundColor: `color-mix(in srgb, ${Priority_colors[task.priority]} 60%, white)` }}>
                 <div className="task-top-row">
                   <span className="task-name">{task.taskName}</span>
                 </div>
@@ -74,7 +84,7 @@ function App() {
                 <button type="button" className="checkmark-btn">
                   <FaCheck />
                 </button>
-                <button type='button' onClick={() => handleDeleteTask(task.id)}>
+                <button type='button' className="trash" onClick={() => handleDeleteTask(task.id)}>
                   <FaTrash />
                 </button>
               </div>

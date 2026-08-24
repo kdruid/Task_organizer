@@ -1,13 +1,12 @@
 :root {
   --text: #232126;
   --text-h: #08060d;
-  --bg: #fff;
+  --bg: #a29d9d;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
@@ -28,4 +27,95 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+}
+
+
+.task-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+
+/* splits the card into "content on the left" + "actions on the right" */
+.task-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.task-content {
+  flex: 1; /* takes up remaining space, pushes actions to the far right */
+}
+
+/* task name + priority badge, side by side */
+.task-top-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.priority-badge {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  color: black;
+  text-transform: capitalize;
+}
+
+.task-description {
+  margin: 6px 0;
+  color: #444;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* deadline on the left, view-more button on the right */
+.task-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.view-more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #777;
+}
+
+/* right column: edit button stacked above checkmark */
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.edit-btn {
+  font-size: 0.8rem;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.edit-btn :hover{
+    transform: scale(2.0);
+}
+
+.checkmark-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #2ecc71; /* green — signals "complete" action */
+  cursor: pointer;
 }

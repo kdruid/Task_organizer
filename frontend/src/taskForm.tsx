@@ -50,7 +50,7 @@ function TaskForm({ onClose, onSave, onDelete, existingTask }: TaskFormProps) {
 
   return (
     <><form className="tasks" onSubmit={handleSubmit}>
-      <button type="button" className="tasks-close-btn" onClick={onClose}>
+      <button type="button" className="closebtn" onClick={onClose}>
         ✕
       </button>
 
@@ -61,7 +61,7 @@ function TaskForm({ onClose, onSave, onDelete, existingTask }: TaskFormProps) {
           value={taskName}
           onChange={(e) => setTaskName(e.target.value)}
         />
-      </label>
+      </label><br />
 
       
       <label className="priority">
@@ -98,9 +98,9 @@ function TaskForm({ onClose, onSave, onDelete, existingTask }: TaskFormProps) {
         />
       </label>
 
-      <button type="submit">{existingTask ? "Update Task" : "Save Task"}</button>
+      <button type="submit" className="submit">{existingTask ? "Update Task" : "Save Task"}</button>
       {existingTask && (
-        <button type="button" onClick={handleDelete}>
+        <button type="button" className='trash' onClick={handleDelete}>
             <FaTrash/>
       </button>)}
     </form> </>     
