@@ -4,10 +4,33 @@
 }
 
 .tasks{
+    background: #ccc;
     border: 2px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
+}
+
+.tasks button[type="submit"] {
+    align-self: center;
+    margin-top: 12px;
+    display: flex;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 70px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    padding: 4px 10px;
+    color: black;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0) 40%
+    ), var(--bg);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.25),        /* outer drop shadow, adds depth */
+        inset 0 1px 1px rgba(255, 255, 255, 0.4); /* inner highlight, fakes gloss */ 
 }
 
 .closebtn{
@@ -15,20 +38,30 @@
     border: none;
     width: 25px;
     cursor: pointer;
-}
-
-.submit{
-    margin-top: 3px;
-    padding: 3px;
-    display: flex;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 70px;
-    left: 50px;
-    padding: 2em;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0) 40%
+    ), var(--bg);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.25),        /* outer drop shadow, adds depth */
+        inset 0 1px 1px rgba(255, 255, 255, 0.4); /* inner highlight, fakes gloss */  
 }
 
 .trash{
     color: #444;
+    cursor: pointer;
+    display: flex;
+    width: 40px;
+    align-self: center;
+    border-radius: 20%;
+    padding: 4px 10px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0) 40%
+    ), var(--bg);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.25),        /* outer drop shadow, adds depth */
+        inset 0 1px 1px rgba(255, 255, 255, 0.4); /* inner highlight, fakes gloss */  
 }

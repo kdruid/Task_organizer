@@ -1,7 +1,9 @@
 :root {
   --text: #232126;
   --text-h: #08060d;
+  --badge-color:black;
   --bg: #a29d9d;
+  --backg: #474747;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -18,7 +20,7 @@
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
-  background: var(--bg);
+  background: var(--backg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -29,12 +31,31 @@
   }
 }
 
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.completed_tasks{
+  border-radius: 6px;
+  
+}
 
 .task-card {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 12px 16px;
   margin-bottom: 12px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0) 40%
+  ), var(--badge-color);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),        /* outer drop shadow, adds depth */
+    inset 0 1px 1px rgba(255, 255, 255, 0.4); /* inner highlight, fakes gloss */
 }
 
 /* splits the card into "content on the left" + "actions on the right" */
@@ -54,14 +75,6 @@
   align-items: center;
   gap: 8px;
   font-weight: 600;
-}
-
-.priority-badge {
-  padding: 2px 10px;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  color: black;
-  text-transform: capitalize;
 }
 
 .task-description {
@@ -106,10 +119,18 @@
   padding: 4px 10px;
   cursor: pointer;
   color: black;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0) 40%
+  ), var(--bg);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),        /* outer drop shadow, adds depth */
+    inset 0 1px 1px rgba(255, 255, 255, 0.4); /* inner highlight, fakes gloss */  
 }
 
 .edit-btn :hover{
-    transform: scale(2.0);
+  transform: scale(2.0);
 }
 
 .checkmark-btn {
@@ -118,4 +139,23 @@
   font-size: 1.1rem;
   color: #2ecc71; /* green — signals "complete" action */
   cursor: pointer;
+}
+
+.add_button{
+  font-size: 0.8rem;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 4px 10px;
+  cursor: pointer;
+  color: black;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0) 40%
+  ), var(--bg);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),        /* outer drop shadow, adds depth */
+    inset 0 1px 1px rgba(255, 255, 255, 0.4); /* inner highlight, fakes gloss */ 
 }

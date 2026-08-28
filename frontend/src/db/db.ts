@@ -5,8 +5,8 @@ const db = new Dexie('TaskOrganizerDB') as Dexie & {
   tasks: EntityTable<Task, 'id'>;
 };
 
-db.version(1).stores({
-  tasks: 'id, taskName, priority, deadline', // indexed fields
+db.version(2).stores({
+  tasks: 'id, taskName, priority, deadline, completed' // indexed fields
 });
 
 export { db };

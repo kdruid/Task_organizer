@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Priority_colors , type Priority} from "./constants/priority";
 import { FaTrash } from 'react-icons/fa';
-import './App.css'; 'taskForm.css'
 
 
 export interface Task{
@@ -9,7 +8,8 @@ export interface Task{
     taskName: string,
     description: string,
     deadline: string,
-    priority: Priority
+    priority: Priority,
+    completed: boolean
 }
 
 interface TaskFormProps {
@@ -42,7 +42,8 @@ function TaskForm({ onClose, onSave, onDelete, existingTask }: TaskFormProps) {
         taskName,
         description,
         deadline,
-        priority
+        priority,
+        completed: existingTask?.completed ?? false
     }
     onSave(task);
     onClose();
